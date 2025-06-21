@@ -8,11 +8,11 @@ const axios = require("axios");
 const googleLoing = async (req, res) => {
     try {
         const { code } = req.query;
-        // console.log("Google login code:", code);
+        console.log("Google login code:", code);
         const googelRes = await oauth2Client.getToken(code);
         oauth2Client.setCredentials(googelRes.tokens);
 
-        const userInfo = await oauth2.userinfo.get();
+        // const userInfo = await oauth2.userinfo.get();
         const userInfo = await axios.get(
             `https://www.googleapis.com/oauth2/v3/userinfo?alt=json&access_token=${googelRes.tokens.access_token}`,
 
