@@ -9,13 +9,7 @@ app.get('/', (req, res) => {
     res.send('Welcome to the backend server!');
 })
 
-// app.use(cors());
-
-app.use(cors({
-    origin: 'https://google-auth-alpha.vercel.app',
-    methods: ['GET', 'POST'], // Add PUT, DELETE if needed
-    credentials: true, // If you're using cookies or sessions
-}));
+app.use(cors());
 
 app.use('/auth', authRouter);
 
