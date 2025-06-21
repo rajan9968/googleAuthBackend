@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const authRouter = require('../routes/authRouter'); // note: adjust path if needed
+const authRouter = require('./routes/authRouter'); // note: adjust path if needed
 require('dotenv').config();
 require('../models/dbConnection');
 const cors = require('cors');
