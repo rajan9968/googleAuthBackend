@@ -18,7 +18,7 @@ const googleLoing = async (req, res) => {
 
         );
         console.log("User info from Google:", userInfo.data);
-        const { email, name, picture } = userInfo.data;
+        // const { email, name, picture } = userInfo.data;
         // console.log("User email:", email);
         // let user = await userModel.findOne({ email });
         // if (!user) {
@@ -45,12 +45,17 @@ const googleLoing = async (req, res) => {
         //         Image: user.Image
         //     }
         // })
-        res.status(200).json({ message: "Code Run" });
-
+        return res.status(200).json({
+            message: "Login successful",
+            user: userInfo,
+        });
 
     } catch (error) {
-        console.error("Error in googleLogin:", error?.response?.data || error.message || error);
-        res.status(500).json({ message: "Internal server error", error: error?.message });
+        console.error("Error during Google login:", error?.response?.data || error.message);
+        return res.status(500).json({
+            message: "Internal server error",
+            error: error?.response?.data?.error || error.message,
+        });
     }
 }
 
