@@ -49,8 +49,8 @@ const googleLoing = async (req, res) => {
 
 
     } catch (error) {
-        console.error("Error in googleLogin:", error);
-        res.status(500).json({ message: "Internal server error" });
+        console.error("Error in googleLogin:", error?.response?.data || error.message || error);
+        res.status(500).json({ message: "Internal server error", error: error?.message });
     }
 }
 
