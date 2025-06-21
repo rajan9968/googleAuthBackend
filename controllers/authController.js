@@ -17,7 +17,7 @@ const googleLoing = async (req, res) => {
             `https://www.googleapis.com/oauth2/v3/userinfo?alt=json&access_token=${googelRes.tokens.access_token}`,
 
         );
-        // console.log("User info from Google:", userInfo.data);
+        console.log("User info from Google:", userInfo.data);
         const { email, name, picture } = userInfo.data;
         // console.log("User email:", email);
         let user = await userModel.findOne({ email });
