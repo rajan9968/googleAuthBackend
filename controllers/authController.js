@@ -12,7 +12,7 @@ const googleLoing = async (req, res) => {
         const googelRes = await oauth2Client.getToken(code);
         oauth2Client.setCredentials(googelRes.tokens);
 
-        // const userInfo = await oauth2.userinfo.get();
+        const userInfo = await oauth2.userinfo.get();
         const userInfo = await axios.get(
             `https://www.googleapis.com/oauth2/v3/userinfo?alt=json&access_token=${googelRes.tokens.access_token}`,
 
